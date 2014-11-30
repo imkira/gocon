@@ -1,0 +1,88 @@
+Distributed Systems
+Lightning Talk @ gocon2014-autumn
+30 Nov 2014
+Tags: go, gocon
+
+Mario Freitas
+CyberAgent, Inc.
+imkira@gmail.com
+http://github.com/imkira
+present
+http://github.com/imkira/gocon
+
+* github.com/imkira/gocon
+
+* Distributed What?
+
+- Software System
+- On Network Computers
+- Coordinate
+- Communicate
+- Achieve Common Goal
+
+* Typical Problems
+
+- Service Discovery
+- Failure Detection
+- Configuration
+- Coordination
+- Leader Election
+- ...
+
+.image canihazclusters/mfw.png
+
+* consul.io
+
+- http://consul.io
+- By HashiCorp (Vagrant, Packer, Serf, Terraform)
+
+.image canihazclusters/canihazthis.jpg _ 400
+
+.caption go get github.com/armon/consul-api
+
+* Architecture Overview
+
+.image canihazclusters/consul.png _ 600
+
+* Providing Services
+
+.play canihazclusters/provider.go /start block/,/end block/
+
+* Discovering Services
+
+.play canihazclusters/discoverer.go /start block/,/end block/
+
+* Detecting Failures
+
+.code canihazclusters/failure.go /start block/,/end block/
+
+* Configuring Services
+
+.play canihazclusters/config.go /start block/,/end block/
+
+* Coordinating (eg. Transactions)
+
+.play canihazclusters/transaction.go /start block/,/end block/
+
+* Leader Election
+
+Similar to the transaction example:
+
+- Leader acquires lock
+- Leader does something
+- Leader releases lock
+
+Watch key-value for changes (leaders and followers!):
+
+- Leader steps down
+- Leader fails (including false positives)
+
+* Summary
+
+consul io:
+
+- Simple but very powerful!
+- Makes distributed systems development easy!
+- Very fun to work with!
+- Unfortunately, it is still a bit "edge" :'(
+- But future looks promising ;)
