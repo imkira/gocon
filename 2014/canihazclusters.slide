@@ -67,7 +67,7 @@ http://github.com/imkira/gocon
 
 .play canihazclusters/config.go /start block/,/end block/
 
-* Coordinating (eg. Transactions)
+* Coordinating (eg. Distributed Locks, Transactions)
 
 .play canihazclusters/transaction.go /start block/,/end block/
 
